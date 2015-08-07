@@ -1,4 +1,4 @@
-import app, signal from howl
+import app, signal, Project from howl
 import File from howl.io
 
 tstack = {}
@@ -10,6 +10,7 @@ handler = (args) ->
     fn = tstack[#tstack-1] or File '.howl-proj'
     file = fn\open!
     app\open_file File '.howl-proj' unless tstack[#tstack-1]
+    table.insert Project.roots, File '.'
     script = ''
     iscript = false
     for line in file\lines!
