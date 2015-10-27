@@ -6,7 +6,7 @@ tstack = {}
 handler = (args) ->
   tstack[#tstack+1] = args.file
   if args.file.basename == '-'
-    app.window\remove_view!
+    app.window\remove_view! if #app.window.views > 1
     fn = tstack[#tstack-1] or File '.howl-proj'
     file = fn\open!
     app\open_file File '.howl-proj' unless tstack[#tstack-1]
