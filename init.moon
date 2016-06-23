@@ -20,7 +20,7 @@ handler = (args) ->
       elseif line == '!:'
         iscript = true
       else
-        app\open_file File line
+        app\open_file fn.parent\join line
         app.window\remove_view! if #app.window.views > 1
     app\close_buffer args.buffer
     if script != ''
